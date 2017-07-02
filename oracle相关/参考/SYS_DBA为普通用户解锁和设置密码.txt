@@ -1,0 +1,30 @@
+【以下操作，必须以超级管理员身份登录，才能修改】
+ 
+oracle安装后，会默认生成很多个用户
+
+
+
+
+
+
+
+以超级管理员身份登录，请注意，其中的空格符：
+【 sys是一个超级管理员，有最大的权限，dba是角色名，/杠二边是用户名和密码，以dba角色名进入，无需用户名和密码 】 
+sqlplus / as sysdba
+例如：C:\Documents and Settings\Administrator>sqlplus / as sysdba
+
+
+
+解锁普通用户：
+alter user 用户名 account unlock;
+例如：SQL> alter user scott account unlock;
+
+
+
+修改普通用户密码，密码以英文字母开头
+alter user 用户名 identified by 新密码【密码以字母开头】;
+例如：SQL> alter user scott identified by tiger;
+
+
+
+

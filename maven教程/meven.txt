@@ -1,0 +1,17 @@
+  1. 把maven 环境搭建好，设置环境变量
+   2. 测试maven是否ok 
+       mvn -version
+   3. 创建一个安照Maven约定的java项目Hello
+   4. 通过mvn测试Hello项目，并且把Hello项目安装到本地仓库去
+     配置C:\apache-maven-3.2.1\conf\settings.xml 
+     <!-- localRepository
+   | The path to the local repository maven will use to store artifacts.
+   |
+   | Default: ${user.home}/.m2/repository
+    -->
+	<!--设置个人仓库的地址-->
+    <localRepository>C:/mvn_repo/repository</localRepository>
+    5. 拷贝提供的下载插件和jar包的仓库内容repository.rar到本地仓库
+
+    6. 用maven的生命周期命令插件 测试 项目
+       1. test   clean   compile   package  install

@@ -1,0 +1,108 @@
+            maven 项目初体验
+
+第一步. 首先建立Hello项目同时建立Maven约定的目录结构
+
+	Hello
+	 --src
+	 -----main
+	 ----------java
+	 ----------resources
+	 -----test
+	 ---------java
+	 ---------resources
+	 -- target
+	 --pom.xml
+
+第二步：在项目Hello根目录建立pom.xml
+
+	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	  <modelVersion>4.0.0</modelVersion>
+	  <groupId>cn.itcast.maven</groupId>
+	  <artifactId>Hello</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+	  <packaging>jar</packaging>
+	  <name>Hello</name>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.9</version>
+				<scope>test</scope>
+			</dependency>		
+		</dependencies>
+	</project>
+
+第三步：在src/main/java/cn/itcast/maven目录下新建文件Sdcard.java
+
+	package cn.itcast.maven;
+	public class Sdcard{
+	  public String getVender(){
+	      return "sandisk";
+	  }
+	}
+
+第四步：在/src/test/java/cn/itcast/maven目录下新建测试文件TestSdcard.java
+
+	package cn.itcast.maven;
+	import org.junit.Test;
+	public class TestSdcard {
+		@Test
+		public void testGetVender(){
+			Sdcard sdcard = new Sdcard();
+			String verder = sdcard.getVender();
+			System.out.println("生产商:"+verder);		
+		}
+	}
+
+第五步：
+
+  打开cmd命令行，进入Hello项目根目录执行 mvn compile命令，查看根目录变化: 会生成target\class目录 编译Java文件存储到此目录中
+
+    cmd 中继续录入mvn clean命令，然后再次查看根目录变化: 会重新删除 target目录
+
+    cmd 中录入 mvn clean compile命令, 查看根目录变化: 删除target目录之后在编译 *.java文件
+
+    cmd 中录入 mvn clean test命令，查看根目录变化: 删除target目录之后生成测试文件夹  target\test-classes
+
+    cmd 中录入 mvn clean package命令,查看根目录变化 : 删除target目录之后 包括 compile test 和在target目录中生成 .jar包文件
+
+    cmd 中录入 mvn install,查看根目录变化 : 文件打包之后还会提交到私人仓库中 后面通过"坐标"来引用 
+
+  结论: Maven需要的插件会自动通过网络下载,下载到私人仓库的目录为:
+
+    C:\Users\Administrator\.m2\repository\org\apache\maven\plugins
+
+
+Maven默认指定的远程仓库的下载地址在: D:\apache-maven-3.2.1\lib   maven-model-builder-3.2.1.jar中
+
+plugin:下载的中央仓库地址: 
+
+ <pluginRepositories>
+    <pluginRepository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>http://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories>
+
+如果项目需要jar包,则jar包的默认下载地址为:
+
+<repositories>
+    <repository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>http://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+

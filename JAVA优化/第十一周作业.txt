@@ -1,0 +1,5 @@
+使用ASM，通过字节码 完成以下代码：
+        int a=6;
+        int b=7;
+        int c=(a+b)*3;
+        System.out.println(c);

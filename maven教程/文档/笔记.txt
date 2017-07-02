@@ -1,0 +1,76 @@
+    maven 项目管理工具
+
+一、maven介绍
+  1.使用需求
+
+
+  2.引入maven
+
+     1. maven介绍
+     2. maven 解决的问题
+     3. maven、ant、svn的区别
+
+二、体验Maven
+
+  1. 下载及安装Maven
+
+     - 在apache 官网去下载maven 
+     - maven 软件目录介绍
+     - 测试maven环境
+       
+  2.创建Maven约定的目录结构
+
+    - 约定优于配置 概念介绍
+    - 按maven规约的目录结构，创建java项目
+    - 在命令行通过maven命令构建Hello项目
+
+  3.思考：
+
+    - 从什么地方下载maven命令插件或者第三方依赖jar包，并且存放在哪里  
+    - 自己的项目提交给私人仓库，私人仓库的位置在哪
+	   
+三、maven管理jar包依赖
+
+  1. maven术语
+     - maven命令插件
+     - maven坐标
+     - maven仓库
+     - maven管理项目的生命周期
+      
+  2. pom.xml介绍
+  
+  3. jar包依赖管理
+     安装Maven规约创建一个项目，并且依赖Junit4.9 、Hello项，测试jar包依赖管理
+
+四、练习 Maven
+   1. 把maven 环境搭建好，设置环境变量
+   2. 测试maven是否ok 
+       mvn -version
+   3. 创建一个安照Maven约定的java项目Hello
+   4. 通过mvn测试Hello项目，并且把Hello项目安装到个人仓库去
+     配置C:\apache-maven-3.2.1\conf\settings.xml 
+     <!-- localRepository
+   | The path to the local repository maven will use to store artifacts.
+   |
+   | Default: ${user.home}/.m2/repository
+    -->
+	<!--设置个人仓库的地址-->
+    <localRepository>C:/myMaven/repository</localRepository>
+    5. 拷贝提供的下载插件和jar包的仓库内容到个人仓库
+    6. 创建HelloFriend项目，并且要依赖Junit和Hello jar包
+    7. 测试HelloFriend项目，并且把项目发布到个人仓库中
+       - 当Hello项目在个人仓库删除时，再编译HelloFriend项目是否有异常
+      
+
+五、MyEclipse 创建Maven项目
+
+   1. java项目
+
+   2. web项目
+      
+      
+六、搭建Maven的私有服务器
+
+   1.nexus介绍
+   2.nexus私服环境搭建
+   3.nexus 仓库的分类
